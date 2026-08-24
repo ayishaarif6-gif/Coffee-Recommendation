@@ -1,0 +1,12 @@
+services:
+  ai-barista-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-barista-api:latest
+    init: true
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      TF_CPP_MIN_LOG_LEVEL: "2"
+    restart: unless-stopped
